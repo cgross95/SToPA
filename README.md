@@ -1,11 +1,15 @@
-# The SToPA Research Lab
+# SToPA Research Lab Fork for Michigan State datathon participants
 
-This is the official repository for the Small Town Police Accountability (SToPA) Research Lab. This research lab is co-organized by: 
+This is a fork of the [official repository](https://github.com/qsideinstitute/SToPA) for the Small Town Police Accountability (SToPA) Research Lab. The original SToPA research lab is co-organized by: 
 * [Manuchehr Aminian](https://www.cpp.edu/~maminian/)
 * [Anna Haensch](https://annahaensch.com)
 * [Ariana Mendible](https://www.arianamendible.com/)
 
 and the [Institute for the Quantitative Study of Inclusion, Diversity, and Equity (QSIDE)](https://qsideinstitute.org/).
+
+# Fork information
+
+This fork is for testing and documenting the OCR and parsing steps on Michigan State University's high-performance computing cluster in anticipation of 2023 Datathon4Justice.
 
 # Getting Started with the SToPA library
 
