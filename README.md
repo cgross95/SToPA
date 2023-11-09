@@ -38,38 +38,13 @@ Before you get started, you'll need to create a new environment using `conda` (i
 create a new environment (we'll call it `stopa_env`) with
 
 ```
-$ conda create --name stopa_env
+$ conda env create
 ```
 
-and activate your new environment, with
+This will install all necessary dependency. You can activate your new environment, with
 
 ```
 $ conda activate stopa_env
-```
-
-Now you can install the necessary requirements for accessing the base functionality of the SToPA library using the following command.
-
-```
-$ conda install pip
-$ pip install -U -r requirements.txt
-```
-
-## Installing the parsing engine
-
-If you wish to use the Optical Character Recognition (OCR) and parsing tools to build the csv files, you'll need to carry out the following additional installation steps.
-
-#### For Mac Users
-If you are using a mac and you plan to run the OCR engine, you will also need to make sure that `tesseract` is added to your path my installing it with homebrew.
-```
-$ brew install tesseract
-```
-
-#### For Everyone
-The following steps should install all remaining necessary requirements and dependencies.
-
-```
-$ conda install -c conda-forge poppler
-$ pip install -U -r requirements_ocr.txt
 ```
 
 # Using the SToPA Library
