@@ -41,7 +41,7 @@ create a new environment (we'll call it `stopa_env`) with
 $ conda env create
 ```
 
-This will install all necessary dependency. You can activate your new environment, with
+This will install all necessary dependencies. You can activate your new environment, with
 
 ```
 $ conda activate stopa_env
