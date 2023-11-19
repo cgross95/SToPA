@@ -55,13 +55,17 @@ The 2019 and 2020 police logs were originally received as printed pdf pages whic
 
 ```
 $ cd scripts 
-$ python pdf_to_parquet.py 2019
+$ python pdf_to_parquet.py Logs 2019
 ```
 
-or replace 2019 with whichever year you're interested in.  This will take awhile to run, so be patient.  Pages xxxx through yyyy of the pdf will be printed as [parquet](https://www.databricks.com/glossary/what-is-parquet) files to 
+or replace 2019 with whichever year you're interested in.  
+
+The pdf_to_partquet step is the most time consuming. The full 2019 data set takes about 16 CPU hours to complete, or about 4 realtime hours with 8cpus, due to imperfect performance gains (test on MSU's HPCC Cluster with a AMD EPYC 7763 Processor (2.445 GHz)). If you are using an older or slower machine, you may use the Demo2019.pdf to test your install/experiment with the pipeline. This .pdf file contains the first 5 pages of the full 2019 logs and should run in a few minutes. To do this, replace "Logs" with "Demo" in the command above and in the parquet_to_csv command below.
+
+Pages xxxx through yyyy of the pdf will be printed as [parquet](https://www.databricks.com/glossary/what-is-parquet) files to 
 
 ```
-SToPA/data/2019_parquet_logs/pages_xxxx_yyyy.pq
+SToPA/data/Logs2019_parquet_logs/pages_xxxx_yyyy.pq
 ```
 
 and the analogous for 2020.  _If you want to skip this step, you can find the pre-OCR'd [parquet files in google drive here](https://drive.google.com/drive/folders/1hX4BCCQmcWqxmLGIuPRC2x-6CxXd9adB?usp=sharing)._  
@@ -72,12 +76,12 @@ After performing the OCR steop, 2019 and 2020 police log parquet files can be pa
 
 ```
 >cd scripts
->python parquet_to_csv.py 2019
+>python parquet_to_csv.py Logs 2019
 ```
 or replace 2019 with whichever year you're interested in.  If this raises errors it might be the case that you are missing some dependencies, these can be installed using pip (or whatever package management software you prefer).  This will take a couple of minutes to run.  The output files will be printed as csv files to 
 
 ```
-SToPA/data/<today's date>_parsed_2019.csv
+SToPA/data/<today's date>_parsed_Logs2019.csv
 ```
 or the analogous for 2020. _If you want to skip this step, you can fine the pre-parsed [csv files in google drive here](https://drive.google.com/drive/folders/1hX4BCCQmcWqxmLGIuPRC2x-6CxXd9adB?usp=sharing)._
 
