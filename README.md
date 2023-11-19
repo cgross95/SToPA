@@ -60,7 +60,7 @@ $ python pdf_to_parquet.py Logs 2019
 
 or replace 2019 with whichever year you're interested in.  
 
-The pdf_to_partquet step is the most time consuming. The full 2019 data set takes about 16 CPU hours to complete, or about 4 realtime hours with 8cpus, due to imperfect performance gains (test on MSU's HPCC Cluster with a AMD EPYC 7763 Processor (2.445 GHz)). If you are using an older or slower machine, you may use the Demo2019.pdf to test your install/experiment with the pipeline. This .pdf file contains the first 5 pages of the full 2019 logs and should run in a few minutes. To do this, replace "Logs" with "Demo" in the command above and in the parquet_to_csv command below.
+The pdf_to_partquet step is the most time consuming.* 
 
 Pages xxxx through yyyy of the pdf will be printed as [parquet](https://www.databricks.com/glossary/what-is-parquet) files to 
 
@@ -69,6 +69,8 @@ SToPA/data/Logs2019_parquet_logs/pages_xxxx_yyyy.pq
 ```
 
 and the analogous for 2020.  _If you want to skip this step, you can find the pre-OCR'd [parquet files in google drive here](https://drive.google.com/drive/folders/1hX4BCCQmcWqxmLGIuPRC2x-6CxXd9adB?usp=sharing)._  
+
+*The full 2019 data set takes about 16 CPU hours to complete, or about 4 realtime hours with 8 Cpus, due to imperfect performance gains (test on a AMD EPYC 7763 Processor (2.445 GHz)). If you are using an older or slower machine, you may use the Demo2019.pdf to test your install/experiment with the pipeline. This .pdf file contains the first 5 pages of the full 2019 logs and should run in a few minutes. To do this, replace "Logs" with "Demo" in the command above and in the parquet_to_csv command below.
 
 ## How to Parse the Text Files
 
