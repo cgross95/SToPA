@@ -12,8 +12,9 @@ import src as tools
 
 def main(argv):
     n_pages = 5
-    year = argv[0]
-    pdfpath = f"{tools.PROJECT_FOLDER}/data/primary_datasets/Logs{year}.pdf"
+    name = argv[0]
+    year = argv[1]
+    pdfpath = f"{tools.PROJECT_FOLDER}/data/primary_datasets/{name}{year}.pdf"
     file = open(pdfpath, 'rb')
     read_pdf = PyPDF2.PdfFileReader(file)
     total_pages = read_pdf.numPages
@@ -22,12 +23,12 @@ def main(argv):
     # Check that necessary directories exist and if not, create them.
     directories = ["image_bbox_logs","parquet_logs","image_logs","text_logs"]
     for d in directories:
-        exists = os.path.exists(f"{tools.PROJECT_FOLDER}/data/{year}_{d}")
+        exists = os.path.exists(f"{tools.PROJECT_FOLDER}/data/{name}{year}_{d}")
         if not exists:
-            os.mkdir(f"{tools.PROJECT_FOLDER}/data/{year}_{d}")
+            os.mkdir(f"{tools.PROJECT_FOLDER}/data/{name}{year}_{d}")
 
     df_parsed = pd.DataFrame()
-    print(f"Saving files to {tools.PROJECT_FOLDER}/data/{year}_parquet_logs/pages_xxxx_yyyy.pq")
+    print(f"Saving files to {tools.PROJECT_FOLDER}/data/{name}{year}_parquet_logs/pages_xxxx_yyyy.pq")
     for i in range(len(first_pages)):
         first_page = first_pages[i]
         last_page = first_page+5-1
@@ -37,7 +38,7 @@ def main(argv):
         p1 = f'{first_page:04}'
         p2 = f'{last_page:04}'
         df_pages = tools.get_pages_from_pdf(year = year, first_page = first_page, last_page = last_page, plot = False)
-        df_pages.to_parquet(f"{tools.PROJECT_FOLDER}/data/{year}_parquet_logs/pages_{p1}_{p2}.pq")
+        df_pages.to_parquet(f"{tools.PROJECT_FOLDER}/data/{name}{year}_parquet_logs/pages_{p1}_{p2}.pq")
         print(f"Pages {p1} through {p2} saved to parquet.")
 
 if __name__ == "__main__":
